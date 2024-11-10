@@ -3608,6 +3608,9 @@ type EncryptionConfiguration struct {
 	// The encryption configuration for Amazon Simple Storage Service (Amazon S3) data.
 	S3Encryption []S3Encryption
 
+	DataQualityEncryption []DataQualityEncryption
+
+
 	noSmithyDocumentSerde
 }
 
@@ -7378,6 +7381,19 @@ type S3Encryption struct {
 
 	noSmithyDocumentSerde
 }
+
+
+type DataQualityEncryption struct {
+
+	// The Amazon Resource Name (ARN) of the KMS key to be used to encrypt the data.
+	KmsKeyArn *string
+
+	// The encryption mode to use for Amazon S3 data.
+	DataQualityEncryptionMode DataQualityEncryptionMode
+
+	noSmithyDocumentSerde
+}
+
 
 // Specifies a data target that writes to Amazon S3 in Apache Parquet columnar
 // storage.
